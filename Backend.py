@@ -1,3 +1,4 @@
+import datetime
 #TestDB
 #TRUNCATE
 
@@ -60,17 +61,15 @@ def getPass(uid):
         print('error')
 
 def authenticate(uname, password):
-    if check(uname):
-        pass
-    pword = getPass(uname)
     value = False
-    if password == pword:
-        value = True
+    if check(uname):
+        pword = getPass(uname)
+        if password == pword:
+            value = True
     return value
 
-def passChange(npass,key):
+def passChange(npass, key):
     myCursor.execute(f"UPDATE Vault SET pass='{npass}' WHERE recoveryKey='{key}'")
-    db.commit()
 
 '''if __name__ == '__main__':
     myCursor.execute("SELECT * FROM Vault")
