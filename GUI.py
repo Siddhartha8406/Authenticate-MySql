@@ -97,7 +97,7 @@ def main():
 
     link = Label(root, text="Forgot Password", font=(12), fg="blue", cursor="hand2")
     link.grid(row=3, column=1)
-    link.bind("<Button-1>", lambda e:errorWindow())
+    link.bind("<Button-1>", lambda e:CheckKey())
     root.mainloop()
 
 if __name__ == '__main__':
