@@ -80,6 +80,40 @@ def CheckKey():
 
     new_gui.mainloop()
 
+def newuserpass(uname):
+    
+    def add():
+        if pass1.get() == pass2.get():
+            Add(uname, pass1.get())
+            new_pass.destroy()
+        else:
+            Label(new_pass, text="Given passwords don't match. Try again.", 
+                    font=('regular', 16), bg='#2B2827', fg='red').place(x=8, y=235)
+
+    new_pass = Tk()
+    new_pass.geometry('400x300')
+    new_pass.configure(bg="#2B2827")
+
+    pass1 = StringVar()
+    pass2 = StringVar()
+
+    #Heading
+    Label(new_pass, text="Password Recovery", font=("Arial", 18), bg="#424242", fg="#FFFFFF").place(x=90, y=35)
+
+    #Entry of username
+    Label(new_pass, text='Enter Password', font=("Arial", 11), bg="#2B2827", fg="#FFFFFF").place(x=45, y=90)
+    Entry(new_pass, textvariable=pass1, font=("Arial", 11), bg="#808080").place(x=165, y=90)
+
+    #Entry of Recover Key
+    Label(new_pass, text='Confirm Password', font=("Regular", 11), bg="#2B2827", fg="#FFFFFF").place(x=25, y=120)
+    Entry(new_pass, textvariable=pass2, font=("Regular", 11), bg="#808080").place(x=165, y=120)
+
+    #Submit button
+    submit = Button(new_pass, text="Sign Up", font=("Regular", 12), bg="#3E3A39", command=add)
+    submit.place(x=145, y= 160)
+
+    new_pass.mainloop()
+
 def main():
     global root, uvar, passvar
 
