@@ -72,6 +72,7 @@ def Authenticate(uname, password):
 def PassChange(npass, key):
     myCursor.execute(f"UPDATE Vault SET pass='{npass}' WHERE recoveryKey='{key}'")
 
+"First checks if username exits and then compared the key with user given key"
 def RecoveryCheck(uname, key):
     result = False
     if Check(uname):
