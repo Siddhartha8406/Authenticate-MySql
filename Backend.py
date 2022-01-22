@@ -73,11 +73,11 @@ def PassChange(npass, key):
     myCursor.execute(f"UPDATE Vault SET pass='{npass}' WHERE recoveryKey='{key}'")
 
 def RecoveryCheck(uname, key):
-    result='False'
+    result = False
     if Check(uname):
         myCursor.execute(f"SELECT recoveryKey FROM Vault where userName='{uname}'")
         if myCursor.fetchone()[0] == key:
-            result='True'
+            result = True
         return result
 
 '''if __name__ == '__main__':
