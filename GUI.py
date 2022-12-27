@@ -34,7 +34,6 @@ def new_username():
             new_gui.geometry('345x83')
             Label(new_gui, text="The username already exits. Try another username", font=('red', 11)).grid(row=1, columnspan=3)
         else:
-            new_gui.destroy
             print("OK")
 
     Label(new_gui, text='Enter username', font=(11)).grid(row=2, column=1, padx=15, pady=2)
@@ -51,7 +50,6 @@ def CheckKey():
         user_name = uname.get()
         key = ukey.get()
         if RecoveryCheck(user_name, key):
-            new_gui.destroy
             print("OK")
         else:
             Label(new_gui, text="The username/recovery key is wrong.", 
